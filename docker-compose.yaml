@@ -1,0 +1,26 @@
+
+services:
+  taskmgr-api:
+    image: taskmgr:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/api:/app
+    depends_on:
+      - taskmgr-mysql
+
+  taskmgr-mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"  # Expose MySQL on the host machine
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password  # Replace with a secure password
+      # MYSQL_DATABASE: task_manager       # Name of your database
+      # MYSQL_USER: user                   # Custom MySQL user
+      # MYSQL_PASSWORD: user_password      # Password for custom MySQL user
+    volumes:
+      - mysql_data:/var/lib/mysql        # Persist data
+      - ./src/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql  # Initialize database with schema
+
+volumes:
+  mysql_data:
