@@ -7,9 +7,9 @@ app = Flask(__name__)
 
 # Database connection details
 DB_CONFIG = {
-    'host': 'taskmgr-mysql',  # Docker service name
-    'user': 'user',
-    'password': 'user_password',
+    'host': 'mgr-taskmgr-mysql-1',  # Docker service name
+    'user': 'root',
+    'password': 'root',
     'database': 'task_manager'
 }
 
