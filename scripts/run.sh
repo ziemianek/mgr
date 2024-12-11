@@ -28,14 +28,15 @@ build_image() {
 }
 
 run_containers() {
-    docker-compose up --build
+    docker-compose -p taskmgr up --build
 }
 
 # Main script execution
-remove_container "taskmgr-api"
-remove_container "taskmgr-db"
+remove_container "taskmgr-api-1"
+remove_container "taskmgr-mysql-1"
 docker volume rm mgr_mysql_data
 
-remove_image "taskmgr:latest"
-build_image "Dockerfile" "taskmgr:latest"
+remove_image "taskmgr/api:latest"
+build_image "Dockerfile" "taskmgr/api:latest"
+
 run_containers
