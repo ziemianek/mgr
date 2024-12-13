@@ -5,9 +5,11 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
+VERSION = "v1"
+
 # Database connection details
 DB_CONFIG = {
-    'host': 'taskmgr-mysql-1',  # Docker service name
+    'host': 'taskmgr-mysql-1',  # Database service name
     'user': 'root',
     'password': 'root',
     'database': 'task_manager'
@@ -35,7 +37,7 @@ def calculate_due_date(priority):
 def hello():
     return "Hello!, dupa"
 
-@app.route('/tasks', methods=['GET'])
+@app.route(f'/{VERSION}/tasks', methods=['GET'])
 def get_tasks():
     """Get all tasks."""
     conn = get_db_connection()
@@ -49,7 +51,7 @@ def get_tasks():
     return jsonify(result), 200
 
 
-@app.route('/tasks/<int:task_id>', methods=['GET'])
+@app.route(f'/{VERSION}/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
     """Get a single task."""
     conn = get_db_connection()
@@ -65,7 +67,7 @@ def get_task(task_id):
     return jsonify(task), 200
 
 
-@app.route('/tasks', methods=['POST'])
+@app.route(f'/{VERSION}/tasks', methods=['POST'])
 def create_task():
     """Create a new task."""
     data = request.json
@@ -94,7 +96,7 @@ def create_task():
     return jsonify({'id': task_id, 'title': title, 'priority': priority}), 201
 
 
-@app.route('/tasks/<int:task_id>', methods=['PUT'])
+@app.route(f'/{VERSION}/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
     """Update an existing task."""
     data = request.json
@@ -122,7 +124,7 @@ def update_task(task_id):
     return jsonify({'message': 'Task updated successfully'}), 200
 
 
-@app.route('/tasks/<int:task_id>', methods=['DELETE'])
+@app.route(f'/{VERSION}/tasks/<int:task_id>', methods=['DELETE'])
 def delete_task(task_id):
     """Delete a task."""
     conn = get_db_connection()

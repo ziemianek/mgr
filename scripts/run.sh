@@ -32,11 +32,11 @@ run_containers() {
 }
 
 # Main script execution
-remove_container "taskmgr-api-1"
-remove_container "taskmgr-mysql-1"
-docker volume rm mgr_mysql_data
+# remove_container "taskmgr-api-1"
+# remove_container "taskmgr-mysql-1"
+# docker volume rm mgr_mysql_data
 
-remove_image "taskmgr/api:latest"
-build_image "Dockerfile" "taskmgr/api:latest"
+# remove_image "taskmgr/api:latest"
+# build_image "Dockerfile" "taskmgr/api:latest"
 
 run_containers

@@ -1,0 +1,34 @@
+    - name: Run `docker compose up` again
+      community.docker.docker_compose_v2:
+        project_src: "{{ role_path }}/files"
+        project_name: taskmgr
+      register: output
+
+    - name: Show results
+      ansible.builtin.debug:
+        var: output
+
+    # - ansible.builtin.assert:
+    #     that: not output.changed
+
+    # - name: Stop all services
+    #   community.docker.docker_compose_v2:
+    #     project_src: flask
+    #     state: stopped
+    #   register: output
+
+    # - name: Show results
+    #   ansible.builtin.debug:
+    #     var: output
+
+    # - name: Verify that web and db services are not running
+    #   ansible.builtin.assert:
+    #     that:
+    #       - web_container.State != 'running'
+    #       - db_container.State != 'running'
+    #   vars:
+    #     web_container: >-
+    #       {{ output.containers | selectattr("Service", "equalto", "web") | first }}
+    #     db_container: >-
+    #       {{ output.containers | selectattr("Service", "equalto", "db") | first }}
+
