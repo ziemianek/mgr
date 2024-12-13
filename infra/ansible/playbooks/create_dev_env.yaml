@@ -4,3 +4,5 @@
   gather_facts: false
   roles:
     - role: ../roles/docker_compose
+  vars:
+    mode: create

@@ -1,9 +1,1 @@
-    - name: Run `docker compose up` again
-      community.docker.docker_compose_v2:
-        project_src: "{{ role_path }}/files"
-        project_name: taskmgr
-      register: output
-
-    - name: Show results
-      ansible.builtin.debug:
-        var: output
+- ansible.builtin.include_tasks: "{{ mode }}.yaml"
