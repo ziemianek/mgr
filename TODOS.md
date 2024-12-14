@@ -9,7 +9,8 @@ todo:
 - [] add parameteres to docker_compose role
 - [] add role to build api image
 - [] better design for roles to create/delete local env
-
+- [] use kubernetes to run app
+- [] create simple frontend for the app
 
 done:
 - [x] create todo list
@@ -21,3 +22,4 @@ done:
 - [x] update readme/ generate cool readme
 - [x] create api tests
 - [x] create ansible to run/clear envinronment
+- [x] add web server service

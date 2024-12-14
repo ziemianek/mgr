@@ -2,6 +2,7 @@
   community.docker.docker_compose_v2:
     project_src: "{{ role_path }}/files"
     project_name: taskmgr
+    build: always
   register: output
 
 - name: Verify that api and db services are running

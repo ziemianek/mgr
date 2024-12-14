@@ -14,6 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src/api .
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 5050
 # Define the command to run the application
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080", "--debug"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5050", "--debug"]
