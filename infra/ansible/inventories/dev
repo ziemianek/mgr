@@ -1,1 +1,1 @@
-dev ansible_connection=local ansible_python_interpreter=/Users/michal/Dev/mgr/.taskmgr/bin/python3
+dev ansible_connection=local ansible_python_interpreter="/usr/bin/env python3"
