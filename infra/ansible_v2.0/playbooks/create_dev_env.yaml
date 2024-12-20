@@ -1,0 +1,8 @@
+---
+- name: Run app using Docker Compose
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: docker_compose
+  vars:
+    mode: create

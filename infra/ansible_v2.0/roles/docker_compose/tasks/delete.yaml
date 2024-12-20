@@ -1,0 +1,23 @@
+# ============================================================================= #
+# header
+# ============================================================================== #
+---
+- name: Stop all services
+  community.docker.docker_compose_v2:
+    project_src: "{{ role_path }}/files"
+    project_name: taskmgr
+    state: stopped
+  register: output
+
+- name: Verify that api and db services are not running
+  ansible.builtin.assert:
+    that:
+      - api_container.State != 'running'
+      - db_container.State != 'running'
+    fail_msg: "Couldn't properly stopped one or more services"
+    success_msg: "Successfully stopped all of the services"
+  vars:
+    api_container: >-
+      {{ output.containers | selectattr("Service", "equalto", "api") | first }}
+    db_container: >-
+      {{ output.containers | selectattr("Service", "equalto", "mysql") | first }}
