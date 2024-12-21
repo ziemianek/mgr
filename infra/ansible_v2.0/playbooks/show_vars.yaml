@@ -1,0 +1,8 @@
+---
+- name: Print all Ansible variables
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Print all variables
+      debug:
+        var: hostvars[inventory_hostname]

@@ -1,0 +1,11 @@
+---
+- name: Start Docker Compose locally
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: include vars
+      include_vars: dev_vault.yaml
+  roles:
+    - role: docker_compose
+  vars:
+    mode: deploy
