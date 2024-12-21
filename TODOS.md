@@ -11,6 +11,12 @@ todo:
 - [] better design for roles to create/delete local env
 - [] use kubernetes to run app
 - [] create simple frontend for the app
+- [] rethink this mess above ^
+
+---
+- [] add generic image builting step to ansible
+- [] add role supporting playbooks for every service
+- [] change deploy/destroy to create/delete for better visibility
 
 done:
 - [x] create todo list
