@@ -1,0 +1,8 @@
+---
+- name: Stop Docker Compose
+  hosts: DeployHost
+  gather_facts: false
+  roles:
+    - role: docker_compose
+  vars:
+    mode: destroy

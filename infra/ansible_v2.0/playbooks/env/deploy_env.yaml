@@ -1,5 +1,0 @@
----
-- ansible.builtin.import_playbook: ../deploy_images.yaml
-- ansible.builtin.import_playbook: ../deploy_compose.yaml
-
-# FIX THIS FILE

@@ -1,3 +1,0 @@
----
-- ansible.builtin.import_playbook: ../destroy_compose.yaml
-- ansible.builtin.import_playbook: ../destroy_images.yaml

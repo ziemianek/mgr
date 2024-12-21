@@ -34,12 +34,12 @@
 
     - name: Run docker compose up
       community.docker.docker_compose_v2:
-        project_src: "{{ compose_rendered_template_path }}"
+        project_src: "{{ compose_project_source_path }}"
         project_name: "{{ project_name }}"
         build: always
       register: output
-  # always:
-  #   - name: Cleanup
-  #     ansible.builtin.file:
-  #       path: "{{ compose_rendered_template_path }}"
-  #       state: absent
+  always:
+    - name: Cleanup
+      ansible.builtin.file:
+        path: "{{ compose_rendered_template_path }}"
+        state: absent

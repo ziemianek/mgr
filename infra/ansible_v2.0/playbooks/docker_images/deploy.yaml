@@ -1,6 +1,6 @@
 ---
 - name: Build and push Docker image
-  hosts: localhost
+  hosts: DeployHost
   gather_facts: false
   roles:
     - role: docker_image
