@@ -15,8 +15,7 @@ todo:
 
 ---
 - [] add generic image builting step to ansible
-- [] add role supporting playbooks for every service
-- [] change deploy/destroy to create/delete for better visibility
+- [] move api reference to docs/
 
 done:
 - [x] create todo list

@@ -1,0 +1,6 @@
+---
+- name: Log in to Docker registry
+  docker_login:
+    registry_url: "{{ vault_docker_registry_url }}"
+    username: "{{ vault_docker_registry_username }}"
+    password: "{{ vault_docker_registry_password }}"

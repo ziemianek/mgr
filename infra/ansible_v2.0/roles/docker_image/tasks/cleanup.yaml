@@ -1,0 +1,5 @@
+---
+- name: Logout from Docker registry
+  community.general.docker_login:
+    registry_url: "{{ vault_docker_registry_url }}"
+    state: absent
