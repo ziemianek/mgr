@@ -10,9 +10,7 @@ on:
 
 jobs:
   ansible-playbook:
-    if: \
-      github.event.pull_request.merged == true && \
-      contains(github.event.pull_request.changed_files, 'Dockerfile')
+    if: contains(github.event.pull_request.changed_files, 'Dockerfile')
     runs-on: ubuntu-latest
     env:
       PYTHON_VERSION: ${{ secrets.PYTHON_VERSION }}
