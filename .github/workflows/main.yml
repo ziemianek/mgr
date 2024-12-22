@@ -33,4 +33,4 @@ jobs:
 
     - name: Run Ansible Playbook with Vault
       run: |
-        echo "$ANSIBLE_VAULT_PASSWORD" | ansible-playbook -i infra/ansible/inventories${{ env.ENV_TYPE }}.yaml infra/ansible/playbooks/docker_images/deploy.yml --vault-password-file /dev/stdin
+        echo "$ANSIBLE_VAULT_PASSWORD" | ansible-playbook -i infra/ansible/inventories${{ env.ENV_TYPE }}.yaml infra/ansible/playbooks/docker_images/deploy.yaml --vault-password-file /dev/stdin
