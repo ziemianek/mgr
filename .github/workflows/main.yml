@@ -1,12 +1,12 @@
 name: Run Ansible Playbook to deploy APP Image
-
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - main
     paths:
       - Dockerfile
-
 jobs:
   ansible-playbook:
     runs-on: ubuntu-latest
