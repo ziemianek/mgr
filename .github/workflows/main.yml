@@ -1,0 +1,55 @@
+name: Run Ansible Playbook to deploy APP Image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  ansible-playbook:
+    if: \
+      github.event.pull_request.merged == true && \
+      contains(github.event.pull_request.changed_files, 'Dockerfile')
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: ${{ secrets.PYTHON_VERSION }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+      ENV_TYPE: ${{ secrets.ENV_TYPE }}
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Create Python Virtual Environment
+      run: |
+        python3 -m venv venv
+        source venv/bin/activate
+        python3 -m pip install --upgrade pip
+        pip3 install -r requirements.txt
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+    - name: Run Ansible Playbook with Vault
+      run: |
+        # source venv/bin/activate
+        echo "$ANSIBLE_VAULT_PASSWORD" | ansible-playbook -i infra/ansible/inventories${{ env.ENV_TYPE }}.yaml infra/ansible/playbooks/docker_images/deploy.yml --vault-password-file /dev/stdin
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: "False"
+
+    - name: Cleanup SSH
+      if: always()
+      run: |
+        rm -rf ~/.ssh
