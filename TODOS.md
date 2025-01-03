@@ -32,6 +32,18 @@ Fix: https://stackoverflow.com/questions/35738680/avoiding-warning-there-are-too
     (.taskmgr) ➜  mgr git:(test/testagain) ✗ rm .git/gc.log
     rm: .git/gc.log: No such file or directory
 ```
+I still see this ....
+
+(.taskmgr) ➜  mgr git:(test/testagain) ✗ git commit -m "idk"
+Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+[test/testagain 2e4ae52] idk
+ 4 files changed, 35 insertions(+), 175 deletions(-)
+ delete mode 100644 TODOS_v1.md
+ delete mode 100644 TODOS_v2.md
+ delete mode 100644 roadmap.md
+
+
 2. **Learn how to properly architect Kubernetes cluster for microservices app**
 
 3. **Learn how to architect infra for the project**
