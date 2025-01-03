@@ -1,37 +1,3 @@
-<<<<<<< Updated upstream
-todo:
-- [] fix warnings in mysql container
-- [] create healthchecks for mysqldb
-- [] add persistent volume to db
-- [] better setup for github repo
-- [] database security
-- [] do gitops research
-- [] setup gitops
-- [] add parameteres to docker_compose role
-- [] add role to build api image
-- [] better design for roles to create/delete local env
-- [] use kubernetes to run app
-- [] create simple frontend for the app
-- [] rethink this mess above ^
-
----
-- [] add generic image builting step to ansible
-- [] move api reference to docs/
-
-done:
-- [x] create todo list
-- [x] fix weird container naming
-- [x] add this mysql -u root -p < docker-entrypoint-initdb.d/schema.sql to entrypoint
-    - [x] fix entrypoint
-    - at the end i managed to not use entrypoint script
-- [x] handle api versioning
-- [x] update readme/ generate cool readme
-- [x] create api tests
-- [x] create ansible to run/clear envinronment
-- [x] add web server service
-=======
-## TODO List
-
 1. **Fix this issue:**
 ```bash
 
@@ -202,4 +168,3 @@ same, got it from chatgpt:
 ---
 ### Źródła:
 - fix to 1st task https://stackoverflow.com/questions/35738680/avoiding-warning-there-are-too-many-unreachable-loose-objects-during-git-svn
->>>>>>> Stashed changes
