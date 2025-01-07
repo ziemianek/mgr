@@ -7,6 +7,12 @@ docker_api_image:       "{{ vault_docker_registry_repo }}/{{ docker_api_image_na
 docker_api_host_port:   5050
 docker_api_container_port: 5050
 
+# frontend
+docker_frontend_image_name:  "frontend-{{ env_type }}"
+docker_frontend_image_tag:   1.0
+docker_frontend_image:       "{{ vault_docker_registry_repo }}/{{ docker_frontend_image_name }}:{{ docker_frontend_image_tag }}"
+docker_frontend_host_port:   8888
+docker_frontend_container_port: 8888
 
 # mysql - container
 docker_mysql_image_name:  mysql
