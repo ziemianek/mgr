@@ -1,0 +1,45 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: userpass
+      MYSQL_DATABASE: taskdb  # Specify a default database
+    volumes:
+      # Use a named volume to persist MySQL data
+      - mysql-data:/var/lib/mysql
+      - /Users/michal/Dev/mgr/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro  # Initialize schema
+    ports:
+      - "3306:3306"
+    networks:
+      - flask_mysql_network
+
+  api:
+    build:
+      context: /Users/michal/Dev/mgr
+      dockerfile: Dockerfile
+    container_name: flask-api
+    ports:
+      - "5050:5050"
+    environment:
+      MYSQL_HOST: mysql  # Flask app will connect to MySQL using the service name 'mysql'
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: userpass
+      MYSQL_DB: taskdb
+    volumes:
+      - /Users/michal/Dev/mgr/src/api:/app  # Ensure the source code is accessible in the container
+    depends_on:
+      - mysql  # Ensure MySQL starts before the API
+    networks:
+      - flask_mysql_network
+
+# Named volume to persist MySQL data
+volumes:
+  mysql-data:
+
+# Define a custom network
+networks:
+  flask_mysql_network:
+    driver: bridge

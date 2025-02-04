@@ -1,9 +1,0 @@
-- name: Build API Docker image
-  community.docker.docker_image_build:
-    name: "{{ docker_api_image }}"
-    path: /Users/michal/Dev/mgr/dockerfiles
-    dockerfile: api.dockerfile
-
-- name: Push API Docker image to remote repository
-  community.docker.docker_image_push:
-    name: "{{ docker_api_image }}"

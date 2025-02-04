@@ -1,6 +1,9 @@
-pip==24.3.1
+pip
 flask
 mysql-connector-python
-ansible
+ansible==11.*
 pytest
 requests
+tenacity
+sqlalchemy
+PyMySQL
