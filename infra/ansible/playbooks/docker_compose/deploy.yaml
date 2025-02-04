@@ -1,8 +1,0 @@
----
-- name: Start Docker Compose locally
-  hosts: DeployHost
-  gather_facts: false
-  roles:
-    - role: docker_compose
-  vars:
-    mode: deploy

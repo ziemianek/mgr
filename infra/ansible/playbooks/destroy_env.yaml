@@ -1,3 +1,0 @@
----
-- ansible.builtin.import_playbook: docker_compose/destroy.yaml
-- ansible.builtin.import_playbook: docker_images/destroy.yaml

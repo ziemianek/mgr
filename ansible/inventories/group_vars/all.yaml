@@ -1,0 +1,27 @@
+# api
+docker_api_image_name:     "api-{{ env_type }}"
+docker_api_image_tag:      v1.0
+docker_api_image:          "{{ vault_docker_registry_repo }}/{{ docker_api_image_name }}:{{ docker_api_image_tag }}"
+docker_api_host_port:      5050
+docker_api_container_port: 5050
+
+# mysql - container
+docker_mysql_image_name:  mysql
+docker_mysql_image_tag:   latest
+docker_mysql_image:       "{{ docker_mysql_image_name }}:{{ docker_mysql_image_tag }}"
+docker_mysql_host_port:   3306
+docker_mysql_container_port: 3306
+
+# frontend - FIXME: not used yet
+# docker_frontend_image_name:  "frontend-{{ env_type }}"
+# docker_frontend_image_tag:   1.0
+# docker_frontend_image:       "{{ vault_docker_registry_repo }}/{{ docker_frontend_image_name }}:{{ docker_frontend_image_tag }}"
+# docker_frontend_host_port:   8888
+# docker_frontend_container_port: 8888
+
+# nginx - FIXME: not used yet
+# docker_nginx_image_name:  nginx
+# docker_nginx_image_tag:   latest
+# docker_nginx_image:       "{{ docker_nginx_image_name }}:{{ docker_nginx_image_tag }}"
+# docker_nginx_host_port:   8080
+# docker_nginx_container_port: 80

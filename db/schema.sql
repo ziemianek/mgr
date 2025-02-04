@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS task_manager;
+CREATE DATABASE IF NOT EXISTS taskdb;
 
-USE task_manager;
+USE taskdb;
 
 CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,

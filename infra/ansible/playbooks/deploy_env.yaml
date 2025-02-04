@@ -1,3 +1,0 @@
----
-- ansible.builtin.import_playbook: docker_images/deploy.yaml
-- ansible.builtin.import_playbook: docker_compose/deploy.yaml
