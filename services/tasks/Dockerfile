@@ -1,14 +1,10 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.12-slim
+FROM python:3.12-slim AS builder
 
-# Copy the requirements file into the container
-COPY ./requirements.txt .
+WORKDIR /app
 
-# Install the dependencies
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY requirements.txt      /app/requirements.txt
+COPY ./services/tasks/app /app
 
-# Copy only the contents of src/api while keeping the structure
-COPY ./app /app
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-# Define the command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5050"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5050", "--reload"]

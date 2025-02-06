@@ -4,7 +4,7 @@ TASKS: Final[list[dict[str, Any]]] = [
     {
         "task_id": 1,
         "task_name": "Task 1",
-        "task_description": "This is Task 1",
+        "task_description": "Testowy task",
         "completed": False
     },
     {

@@ -1,0 +1,11 @@
+services:
+  tasks:
+    image: development/tasks-svc:v1.0
+    build:
+      context: .
+      dockerfile: services/tasks/Dockerfile
+    container_name: tasks-svc
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./services/tasks/:/app
