@@ -1,9 +1,7 @@
-pip
-flask
-mysql-connector-python
+pip==25.0
 ansible==11.*
-pytest
-requests
-tenacity
-sqlalchemy
-PyMySQL
+
+# When you install with pip install "fastapi[standard]" 
+# it comes with some default optional standard dependencies.
+# https://fastapi.tiangolo.com/tutorial/#install-fastapi
+fastapi[standard]==0.115.8
