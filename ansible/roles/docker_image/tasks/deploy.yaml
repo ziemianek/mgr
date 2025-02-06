@@ -1,4 +1,0 @@
----
-- ansible.builtin.include_tasks: prereq.yaml
-- ansible.builtin.include_tasks: api_image.yaml
-- ansible.builtin.include_tasks: cleanup.yaml
