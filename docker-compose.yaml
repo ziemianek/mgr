@@ -1,6 +1,6 @@
 services:
   tasks:
-    image: development/tasks-svc:v1.0
+    image: development/tasks-svc:v1.1
     build:
       context: .
       dockerfile: services/tasks/Dockerfile

@@ -1,8 +1,9 @@
-from pydantic import BaseModel, field_validator
+from pydantic import field_validator
+from sqlmodel import Field, SQLModel
 from typing import Optional
 
 
-class BaseTask(BaseModel):
+class BaseTask(SQLModel):
     """
     Pydantic model for the task schema.
     """
@@ -11,11 +12,11 @@ class BaseTask(BaseModel):
     task_completed: bool = False
 
 
-class TaskWithID(BaseTask):
+class Task(BaseTask, table=True):
     """
-    Pydantic model for the task schema with an ID.
+    Pydantic model for the task schema.
     """
-    task_id: str
+    task_id: Optional[str] = Field(default=None, primary_key=True)
 
 
 class CreateTask(BaseTask):

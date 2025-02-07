@@ -3,5 +3,10 @@ ansible==11.*
 
 # When you install with pip install "fastapi[standard]" 
 # it comes with some default optional standard dependencies.
-# https://fastapi.tiangolo.com/tutorial/#install-fastapi
+# https://fastapi.tiangolo.com/
 fastapi[standard]==0.115.8
+
+# Library for interacting with SQL databases from Python code, with Python objects.
+# SQLModel is based on Python type annotations, and powered by Pydantic and SQLAlchemy.
+# https://sqlmodel.tiangolo.com/
+sqlmodel==0.0.22
