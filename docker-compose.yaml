@@ -1,11 +1,20 @@
+name: taskmgr  # compose project name
+
+# https://docs.docker.com/reference/compose-file/services/
 services:
   tasks:
-    image: development/tasks-svc:v1.1
+    image: development/tasks-svc:v1.3
     build:
       context: .
       dockerfile: services/tasks/Dockerfile
     container_name: tasks-svc
+    command: [
+      "--host=0.0.0.0",
+      "--port=5050",
+      "--reload",  # auto-reload on code changes (development only)
+    ]
     ports:
       - "5050:5050"
-    volumes:
+    # bind mount the local source code to the container for auto-reload (development only)
+    volumes:  
       - ./services/tasks/:/app
