@@ -2,7 +2,7 @@ import os
 from dotenv import dotenv_values
 
 
-def get_env_config(env_vars_file: str = ".env") -> dict[str, str]:
+def get_env_vars_from_file(env_vars_file: str = ".env") -> dict[str, str]:
     """
     Reads environment variables from a specified file and returns them as a dictionary.
 
